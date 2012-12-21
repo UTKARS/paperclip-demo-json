@@ -20,7 +20,13 @@ class FriendsController < ApplicationController
       format.json { render json: @friend }
     end
   end
-
+  def get_url
+    @friend = Friend.find(params[:id])
+    @data = @friend.avatar.url.to_json 
+    respond_to do |format|
+      format.json { render json: @data}
+    end
+  end  
   # GET /friends/new
   # GET /friends/new.json
   def new
