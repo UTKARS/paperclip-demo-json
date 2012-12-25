@@ -17,9 +17,12 @@ class FriendsController < ApplicationController
   end
   def get_url
     @friend = Friend.find(params[:id])
-    @data = @friend.avatar.url.to_json 
+    @avatar = @friend.avatar.url(params[:size])
     respond_to do |format|
-      format.json { render json: @data}
+      format.json { render json: {
+        :friend => {:id => @friend.id, :avatar => @avatar}
+      }
+    }
     end
   end  
   def new
