@@ -1,6 +1,4 @@
 class FriendsController < ApplicationController
-  # GET /friends
-  # GET /friends.json
   def index
     @friends = Friend.all
 
@@ -9,9 +7,6 @@ class FriendsController < ApplicationController
       format.json { render json: @friends }
     end
   end
-
-  # GET /friends/1
-  # GET /friends/1.json
   def show
     @friend = Friend.find(params[:id])
 
@@ -27,8 +22,6 @@ class FriendsController < ApplicationController
       format.json { render json: @data}
     end
   end  
-  # GET /friends/new
-  # GET /friends/new.json
   def new
     @friend = Friend.new
 
@@ -37,14 +30,9 @@ class FriendsController < ApplicationController
       format.json { render json: @friend }
     end
   end
-
-  # GET /friends/1/edit
   def edit
     @friend = Friend.find(params[:id])
   end
-
-  # POST /friends
-  # POST /friends.json
   def create
     @friend = Friend.new(params[:friend])
 
@@ -58,9 +46,6 @@ class FriendsController < ApplicationController
       end
     end
   end
-
-  # PUT /friends/1
-  # PUT /friends/1.json
   def update
     @friend = Friend.find(params[:id])
 
@@ -74,9 +59,6 @@ class FriendsController < ApplicationController
       end
     end
   end
-
-  # DELETE /friends/1
-  # DELETE /friends/1.json
   def destroy
     @friend = Friend.find(params[:id])
     @friend.destroy
